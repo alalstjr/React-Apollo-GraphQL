@@ -10,7 +10,7 @@ import client from "./apolloClient";
 import Home from "./Home";
 import Detail from "./Detail";
 
-import "@babel/polyfill";
+import {GlobalStyle, BgWrap} from './css/globalStyles';
 
 class App extends Component {
   render() {
@@ -18,8 +18,11 @@ class App extends Component {
       <ApolloProvider client={client}>
         <Router>
           <React.Fragment>
-            <Route exact={true} path={"/"} component={Home} />
-            <Route path={"/details/:movieId"} component={Detail} />
+            <GlobalStyle />
+            <BgWrap>
+              <Route exact={true} path={"/"} component={Home} />
+              <Route path={"/details/:movieId"} component={Detail} />
+            </BgWrap>
             {/* Router에서 exact 란 정확한 키워드가 path 에 들어왔을경우 렌더링해줍니다. */}
           </React.Fragment>
           {/* React.Fragment 란 DOM에 별도 노드를 추가하지 않고 자식 목록을 그룹화할 수 있습니다.*/}

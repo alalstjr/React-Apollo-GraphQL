@@ -13,3 +13,15 @@ export const HOME_PAGE = gql`
         }
     } 
 `;
+
+export const MOVIE_DETALS = gql`
+    query getMovieDetails($movieId: String){
+        movie(id: $movieId) {
+            id
+            title
+            vote_average
+            overview    
+            poster_path
+        }
+    }
+`;
